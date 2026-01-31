@@ -56,18 +56,17 @@ export default function Banners() {
             : `${config.apiHost}/api/banner/`;
         const method = editing ? "put" : "post";
 
-        const payload = { ...form };
+        const { _id, __v, titles, buttonTexts, buttonLinks, ...cleanPayload } = form;
+        const payload = { ...cleanPayload };
+
         if (form.type === "category") {
             // Backend expects single title/buttonText/buttonLink as arrays for category type
-            payload.title = form.titles;
-            payload.buttonText = form.buttonTexts;
-            payload.buttonLink = form.buttonLinks;
-
-            // Remove plural keys to keep DB clean
-            delete payload.titles;
-            delete payload.buttonTexts;
-            delete payload.buttonLinks;
+            payload.title = titles;
+            payload.buttonText = buttonTexts;
+            payload.buttonLink = buttonLinks;
         }
+
+        console.log("BANNER SUBMIT PAYLOAD:", payload);
 
         axios[method](url, payload).then(() => {
             setEditing(null);
@@ -75,7 +74,8 @@ export default function Banners() {
             fetchBanners();
         }).catch(err => {
             console.error("BANNER SAVE ERROR:", err.response?.data || err.message);
-            alert(err.response?.data?.error || "Failed to save banner");
+            const msg = err.response?.data?.error || "Failed to save banner";
+            alert(msg + (err.response?.data?.details ? "\n" + err.response.data.details : ""));
         });
     };
 
