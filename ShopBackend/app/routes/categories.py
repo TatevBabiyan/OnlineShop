@@ -8,9 +8,19 @@ import re
 
 def serialize_doc(doc):
     doc["_id"] = str(doc["_id"])
-    if "slug" not in doc and "name" in doc:
-        # Fallback for existing docs
+    
+    # Ensure name exists
+    if "name" not in doc:
+        doc["name"] = doc.get("title", "Unnamed Category")
+        
+    # Ensure slug exists
+    if "slug" not in doc:
         doc["slug"] = re.sub(r'[^a-zA-Z0-9]', '-', doc["name"].lower()).strip('-')
+    
+    # Secondary check for empty slug
+    if not doc["slug"]:
+        doc["slug"] = "category-" + doc["_id"][-4:]
+        
     return doc
 
 def slugify(text):

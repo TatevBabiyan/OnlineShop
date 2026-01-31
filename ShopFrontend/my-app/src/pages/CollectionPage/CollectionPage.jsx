@@ -27,7 +27,7 @@ function CollectionPage() {
     <div className={styles.page}>
 
       <div className={styles.header}>
-        <h1>{slug?.replace(/-/g, ' ').toUpperCase()}</h1>
+        <h1>{(!slug || slug === "undefined") ? "COLLECTION" : slug.replace(/-/g, ' ').toUpperCase()}</h1>
       </div>
 
       {/* Sort and Filters Removed */}

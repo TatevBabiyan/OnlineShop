@@ -35,12 +35,12 @@ function HeroSlider({ categories }) {
                         <img src={imageUrl} className={styles.image} alt={cat.name} />
 
                         <div className={styles.content}>
-                            <h2 className={styles.title}>{cat.name}</h2>
+                            <h2 className={styles.title}>{cat.name || "Shop Now"}</h2>
                             <button
                                 className={styles.button}
-                                onClick={() => navigate(`/c/${cat.name.toLowerCase()}`)}
+                                onClick={() => navigate(`/c/${cat.slug || cat._id}`)}
                             >
-                                SHOP {cat.name}
+                                SHOP {cat.name || ""}
                             </button>
                         </div>
                     </div>

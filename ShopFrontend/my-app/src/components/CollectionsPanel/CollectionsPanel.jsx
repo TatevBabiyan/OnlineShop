@@ -21,11 +21,11 @@ function CollectionsPanel({ onClose }) {
           {categories.map((cat) => (
             <Link
               key={cat._id}
-              to={`/c/${cat.slug}`}
+              to={`/c/${cat.slug || cat._id}`}
               className={styles.item}
               onClick={onClose}
             >
-              {cat.name}
+              {cat.name || "Unnamed Collection"}
             </Link>
           ))}
         </div>
