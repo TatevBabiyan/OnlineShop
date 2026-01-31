@@ -68,3 +68,15 @@
     background: black;
     color: white;
 }
+
+/* Media query for mobile font sizes */
+@media (max-width: 768px) {
+    .title {
+        font-size: 12px;
+    }
+
+    .button {
+        font-size: 10px;
+        padding: 10px 30px;
+    }
+}
