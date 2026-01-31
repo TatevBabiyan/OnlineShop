@@ -12,8 +12,9 @@ export default function Login({ onLogin }) {
       localStorage.setItem("adminToken", res.data.token);
       onLogin?.();
       window.location.href = "/admin/dashboard";
-    } catch {
-      alert("Invalid credentials");
+    } catch (err) {
+      const errorMsg = err.response?.data?.error || "Connection error. Please check Render logs.";
+      alert("Error: " + errorMsg);
     }
   };
 
