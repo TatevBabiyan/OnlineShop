@@ -86,11 +86,10 @@ function ProductPage() {
   };
 
   const sections = [
-    { label: "DESCRIPTION", key: "description" },
-    { label: "DETAILS & CARE", key: "details_care" },
-    { label: "RETURNS & EXCHANGES", key: "returns_exchanges" },
-    { label: "DUTIES & TAXES", key: "duties_taxes" },
-    { label: "SHIPPING", key: "shipping" },
+    { label: "Description", key: "description" },
+    { label: "Fit & Fabric", key: "fit_fabric" },
+    { label: "Returns & Exchanges", key: "returns_exchanges" },
+    { label: "Shipping", key: "shipping" },
   ];
 
   // Helper for image URLs

@@ -23,9 +23,8 @@ export default function Products() {
     category: "",
     price: "",
     description: "",
-    details_care: "",
+    fit_fabric: "",
     returns_exchanges: "",
-    duties_taxes: "",
     shipping: "",
     images: []
   });
@@ -70,9 +69,8 @@ export default function Products() {
       category: "",
       price: "",
       description: "",
-      details_care: "",
+      fit_fabric: "",
       returns_exchanges: "",
-      duties_taxes: "",
       shipping: "",
       images: []
     });
@@ -89,9 +87,8 @@ export default function Products() {
       category: product.category,
       price: product.price,
       description: product.description || "",
-      details_care: product.details_care || "",
+      fit_fabric: product.fit_fabric || "",
       returns_exchanges: product.returns_exchanges || "",
-      duties_taxes: product.duties_taxes || "",
       shipping: product.shipping || "",
       images: product.images || []
     });
@@ -520,10 +517,10 @@ export default function Products() {
 
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
                       <div className={styles.formGroup}>
-                        <label>Details & Care</label>
+                        <label>Fit & Fabric</label>
                         <textarea
-                          value={formData.details_care}
-                          onChange={e => setFormData({ ...formData, details_care: e.target.value })}
+                          value={formData.fit_fabric}
+                          onChange={e => setFormData({ ...formData, fit_fabric: e.target.value })}
                           rows="3"
                         />
                       </div>
@@ -532,14 +529,6 @@ export default function Products() {
                         <textarea
                           value={formData.returns_exchanges}
                           onChange={e => setFormData({ ...formData, returns_exchanges: e.target.value })}
-                          rows="3"
-                        />
-                      </div>
-                      <div className={styles.formGroup}>
-                        <label>Duties & Taxes</label>
-                        <textarea
-                          value={formData.duties_taxes}
-                          onChange={e => setFormData({ ...formData, duties_taxes: e.target.value })}
                           rows="3"
                         />
                       </div>

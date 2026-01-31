@@ -145,9 +145,8 @@ def create_product():
         
         # Details
         "description": data.get("description", ""),
-        "details_care": data.get("details_care", ""),
+        "fit_fabric": data.get("fit_fabric", ""),
         "returns_exchanges": data.get("returns_exchanges", ""),
-        "duties_taxes": data.get("duties_taxes", ""),
         "shipping": data.get("shipping", ""),
         "fabric": data.get("fabric", ""),
 
@@ -170,8 +169,7 @@ def update_product(id):
 
     for key in [
         "stock_id", "images", "title", "category", "price", "quantity", "colors", "sizes",
-        "description", "details_care", "returns_exchanges",
-        "duties_taxes", "shipping", "fabric"
+        "description", "fit_fabric", "returns_exchanges", "shipping", "fabric"
     ]:
         if key in data:
             update_data[key] = data[key]
