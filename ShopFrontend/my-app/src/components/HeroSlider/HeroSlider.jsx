@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import styles from "./HeroSlider.module.css";
 import { useNavigate } from "react-router-dom";
-import config from "../../config";
+import MediaRenderer from "../MediaRenderer/MediaRenderer";
 
 function HeroSlider({ categories }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const navigate = useNavigate();
 
-    // Filter categories that have images
+    // Filter categories that have images/videos
     const slides = categories.filter(c => c.image && c.image.trim() !== "");
 
     useEffect(() => {
@@ -25,14 +25,17 @@ function HeroSlider({ categories }) {
         <div className={styles.slider}>
             {slides.map((cat, index) => {
                 const isActive = index === currentIndex;
-                const imageUrl = cat.image.startsWith("http") ? cat.image : `${config.apiHost}${cat.image}`;
 
                 return (
                     <div
                         key={cat._id}
                         className={`${styles.slide} ${isActive ? styles.active : ""}`}
                     >
-                        <img src={imageUrl} className={styles.image} alt={cat.name} />
+                        <MediaRenderer
+                            src={cat.image}
+                            className={styles.image}
+                            alt={cat.name}
+                        />
 
                         <div className={styles.content}>
                             <h2 className={styles.title}>{cat.name || "Shop Now"}</h2>

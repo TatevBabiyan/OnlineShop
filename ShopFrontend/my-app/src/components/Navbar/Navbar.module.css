@@ -16,6 +16,7 @@
   align-items: center;
   gap: 32px;
   flex: 1;
+  justify-content: flex-start;
 }
 
 .link {
@@ -264,15 +265,15 @@
   .logo {
     text-align: center;
     justify-content: center;
-    /* If user wants logo left, remove flex:1 or verify layout */
     flex: 1;
-    /* Ensures logo is centered */
+    z-index: 1;
   }
 
   .hamburger {
     display: block;
     position: absolute;
     left: 20px;
+    z-index: 1002;
   }
 
   /* Push logo to center if hamburger is absolute, or adjust flex */

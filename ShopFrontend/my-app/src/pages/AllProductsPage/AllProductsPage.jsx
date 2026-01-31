@@ -1,8 +1,4 @@
-import styles from "./AllProductsPage.module.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import config from "../../config";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import MediaRenderer from "../../components/MediaRenderer/MediaRenderer";
 
 function AllProductsPage() {
   const [products, setProducts] = useState([]);
@@ -38,19 +34,12 @@ function AllProductsPage() {
       {/* GRID */}
       <div className={styles.grid}>
         {products.map(p => {
-          const getUrl = (url) => {
-            if (!url) return "";
-            return url.startsWith("http") ? url : `${config.apiHost}${url}`;
-          };
-          const mainImg = getUrl(p.images?.[0]);
-          const hoverImg = getUrl(p.images?.[1] || p.images?.[0]);
-
           return (
             <div key={p._id} className={styles.card} onClick={() => navigate(`/product/${p._id}`)}>
               <div className={styles.imageContainer}>
-                <img src={mainImg} className={styles.mainImg} alt={p.title} />
+                <MediaRenderer src={p.images?.[0]} className={styles.mainImg} alt={p.title} />
                 {p.images?.length > 1 && (
-                  <img src={hoverImg} className={`${styles.hoverImg} ${styles.imgTransition}`} alt={`${p.title} hover`} />
+                  <MediaRenderer src={p.images?.[1] || p.images?.[0]} className={`${styles.hoverImg} ${styles.imgTransition}`} alt={`${p.title} hover`} />
                 )}
               </div>
               <div className={styles.info}>

@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import styles from "./ProductPage.module.css";
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import config from "../../config";
+import MediaRenderer from "../../components/MediaRenderer/MediaRenderer";
 import { CartContext } from "../../store/CartContext";
 
 function ProductPage() {
@@ -119,8 +119,8 @@ function ProductPage() {
                 <button className={`${styles.arrow} ${styles.prev}`} onClick={handlePrev}>‹</button>
               )}
 
-              <img
-                src={getImgUrl(product.images[activeImageIndex])}
+              <MediaRenderer
+                src={product.images[activeImageIndex]}
                 className={styles.mainImg}
                 alt={product.title}
               />
@@ -134,9 +134,9 @@ function ProductPage() {
             {product.images.length > 1 && (
               <div className={styles.thumbnails}>
                 {product.images.map((img, i) => (
-                  <img
+                  <MediaRenderer
                     key={i}
-                    src={getImgUrl(img)}
+                    src={img}
                     className={`${styles.thumb} ${i === activeImageIndex ? styles.active : ""}`}
                     onClick={() => setActiveImageIndex(i)}
                     alt="thumbnail"
