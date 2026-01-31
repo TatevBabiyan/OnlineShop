@@ -1,0 +1,63 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-start;
+  /* Align to Left */
+  align-items: flex-start;
+  z-index: 9999;
+}
+
+.panel {
+  background: white;
+  width: 350px;
+  height: 100vh;
+  padding: 40px;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+  animation: slideInLeft 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.head {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item {
+  text-decoration: none;
+  color: #333;
+  text-transform: uppercase;
+  font-size: 13px;
+  cursor: pointer;
+  letter-spacing: 1.5px;
+  transition: 0.2s;
+  font-family: 'Montserrat-Alt1', sans-serif;
+}
+
+.item:hover {
+  letter-spacing: 2px;
+  color: black;
+  font-weight: 500;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}

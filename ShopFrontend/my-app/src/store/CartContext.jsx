@@ -1,0 +1,48 @@
+import { createContext, useState } from "react";
+
+export const CartContext = createContext();
+
+export function CartProvider({ children }) {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (item) => {
+    // check if same product/color/size exists
+    const existing = cart.find(
+      (x) =>
+        x.productId === item.productId &&
+        x.variantColor === item.variantColor &&
+        x.size === item.size
+    );
+
+    if (existing) {
+      setCart((prev) =>
+        prev.map((x) =>
+          x === existing ? { ...x, qty: x.qty + 1 } : x
+        )
+      );
+    } else {
+      setCart((prev) => [...prev, { ...item, qty: 1 }]);
+    }
+  };
+
+  const updateQty = (item, qty) => {
+    if (qty < 1) return;
+    setCart((prev) =>
+      prev.map((x) =>
+        x === item ? { ...x, qty } : x
+      )
+    );
+  };
+
+  const removeFromCart = (item) => {
+    setCart((prev) => prev.filter((x) => x !== item));
+  };
+
+  const value = { cart, addToCart, updateQty, removeFromCart };
+
+  return (
+    <CartContext.Provider value={value}>
+      {children}
+    </CartContext.Provider>
+  );
+}

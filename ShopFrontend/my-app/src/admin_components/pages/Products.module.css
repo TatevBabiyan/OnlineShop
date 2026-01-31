@@ -1,0 +1,180 @@
+.imageGrid {
+  display: flex;
+  gap: 12px;
+  margin: 10px 0 20px 0;
+}
+
+.imageItem {
+  width: 110px;
+  height: 140px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #fafafa;
+  cursor: pointer;
+  position: relative;
+  transition: 0.15s ease;
+}
+
+.imageItem:hover {
+  border-color: #999;
+  background: #f2f2f2;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.placeholder {
+  text-align: center;
+  color: #666;
+  font-size: 12px;
+}
+.placeholder span {
+  font-size: 24px;
+  display: block;
+}
+
+.imagePreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.removeBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #000;
+  color: white;
+  border: none;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.removeBtn:hover {
+  background: #c00;
+}
+
+/* LIST MODE COLORS DOT */
+.colorDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+/* FORM COLORS SWATCH */
+.colorsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 6px 0;
+}
+
+.colorItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #eee;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.colorSwatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1px solid #666;
+}
+
+.colorName {
+  font-size: 12px;
+}
+
+/* SIZES */
+.sizesRow {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.sizeBtn, .activeSize {
+  padding: 6px 10px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  cursor: pointer;
+  background: white;
+  font-size: 12px;
+}
+
+.activeSize {
+  background: black;
+  color: white;
+  border-color: black;
+}
+
+.listRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+
+
+.listThumb {
+  width: 42px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.listInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.listTitle {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.listMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #666;
+}
+
+.listColors {
+  display: flex;
+  gap: 4px;
+}
+
+.colorDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.inlineActions {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.listPrice {
+  font-weight: 500;
+  white-space: nowrap;
+}
