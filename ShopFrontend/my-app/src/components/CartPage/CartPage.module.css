@@ -107,3 +107,41 @@
   cursor: pointer;
   width: 250px;
 }
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .totalRight {
+    width: auto;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .controls {
+    justify-content: center;
+  }
+
+  .remove {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .summary {
+    text-align: center;
+  }
+
+  .checkoutBtn {
+    width: 100%;
+  }
+}
