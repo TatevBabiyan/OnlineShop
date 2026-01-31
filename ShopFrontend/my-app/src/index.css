@@ -89,4 +89,21 @@ body {
   overflow-x: hidden;
   font-family: 'Montserrat-Alt1', sans-serif;
   color: #0f1e3f;
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b,
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-weight: 300 !important;
 }

@@ -10,10 +10,10 @@ function CheckoutPage() {
   const { cart } = useContext(CartContext);
   const navigate = useNavigate();
 
-  const [shippingMethod, setShippingMethod] = useState("haypost"); // 'haypost' | 'pickup'
+  const [shippingMethod, setShippingMethod] = useState("haypost"); // 'haypost' | 'pickup' | 'express'
 
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-  const shipping = shippingMethod === "pickup" ? 0 : 25200; // Free for pickup
+  const shipping = 0; // All current delivery methods are free
   const total = subtotal + shipping;
 
   const [form, setForm] = useState({
@@ -178,13 +178,28 @@ function CheckoutPage() {
                 {shippingMethod === 'haypost' && <div className={styles.radioDot} />}
               </div>
               <div className={styles.shipInfo}>
-                <div className={styles.shipTitle}>Via Hay Post</div>
+                <div className={styles.shipTitle}>Via Hay Post (for Regions)</div>
                 <div className={styles.shipDesc}>1-3 business days</div>
               </div>
-              <div className={styles.shipPrice}>25,200 AMD</div>
+              <div className={styles.shipPrice}>Free</div>
             </div>
 
-            {/* Option 2: Store Pickup */}
+            {/* Option 2: Express Shipping */}
+            <div
+              className={`${styles.shipOption} ${shippingMethod === 'express' ? styles.selected : ''}`}
+              onClick={() => setShippingMethod('express')}
+            >
+              <div className={styles.radioCircle}>
+                {shippingMethod === 'express' && <div className={styles.radioDot} />}
+              </div>
+              <div className={styles.shipInfo}>
+                <div className={styles.shipTitle}>Express Shipping</div>
+                <div className={styles.shipDesc}>1-2 Business Days</div>
+              </div>
+              <div className={styles.shipPrice}>Free</div>
+            </div>
+
+            {/* Option 3: Store Pickup */}
             <div
               className={`${styles.shipOption} ${shippingMethod === 'pickup' ? styles.selected : ''}`}
               onClick={() => setShippingMethod('pickup')}
@@ -202,8 +217,6 @@ function CheckoutPage() {
 
           {/* Express Notice */}
           <div className={styles.expressNotice}>
-            <strong>Express Shipping (1 business day):</strong>
-            <br />
             If you want your order to be delivered fast, we suggest placing your order via call: <a href="tel:+37441911994">+374 41 911 994</a>
           </div>
 

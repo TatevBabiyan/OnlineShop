@@ -31,7 +31,8 @@ def get_all_products():
     query = {}
 
     if category:
-        query["category"] = category
+        import re
+        query["category"] = {"$regex": f"^{re.escape(category)}$", "$options": "i"}
 
     if ids:
         try:

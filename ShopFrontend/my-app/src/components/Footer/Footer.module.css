@@ -1,3 +1,13 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
 .footer {
   background: #0f1e3f;
   color: white;
@@ -24,7 +34,7 @@
 .logo {
   font-size: 24px;
   letter-spacing: 4px;
-  font-weight: 600;
+  font-weight: 300;
   margin-bottom: 10px;
 }
 
@@ -40,17 +50,20 @@
   letter-spacing: 2px;
   color: #fff;
   margin: 0 0 10px 0;
-  font-weight: 600;
+  font-weight: 300;
 }
 
-.col a {
+.socialLink {
   color: #999;
   text-decoration: none;
   font-size: 13px;
   transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.col a:hover {
+.socialLink:hover {
   color: white;
 }
 
@@ -91,7 +104,7 @@
   font-family: inherit;
   font-size: 11px;
   letter-spacing: 1px;
-  font-weight: 600;
+  font-weight: 300;
   cursor: pointer;
   transition: background 0.3s;
 }
@@ -147,4 +160,22 @@
     gap: 15px;
     align-items: flex-start;
   }
+}
+
+.successMessage {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-left: 2px solid white;
+}
+
+.successMessage p {
+  margin: 0;
+  font-size: 13px;
+  color: #fff;
+}
+
+.errorText {
+  color: #ff6b6b;
+  font-size: 11px;
+  margin-top: 5px;
 }

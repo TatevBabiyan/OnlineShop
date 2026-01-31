@@ -93,8 +93,8 @@ def checkout():
         "status": "pending"
     }
 
-    # CRITICAL FIX: Save to db.orders instead of db.useraddress
-    result = db.orders.insert_one(order) 
+    # CRITICAL FIX: Save to db.useraddress as expected by admin panel
+    result = db.useraddress.insert_one(order) 
     new_order_id = str(result.inserted_id)
 
     # ================= DECREMENT STOCK & SYNC PRODUCT =================

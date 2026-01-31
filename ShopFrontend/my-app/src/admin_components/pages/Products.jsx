@@ -406,7 +406,7 @@ export default function Products() {
                         <select value={formData.category} onChange={e => setFormData({ ...formData, category: e.target.value })} required>
                           <option value="">-- Select --</option>
                           {categories.map(c => (
-                            <option key={c._id} value={c.name}>{c.name}</option>
+                            <option key={c._id} value={c.slug || c.name.toLowerCase()}>{c.name}</option>
                           ))}
                         </select>
                       </div>

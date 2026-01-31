@@ -123,9 +123,11 @@ export default function Categories() {
                     <button
                       style={{ marginRight: '10px', background: 'none', border: 'none', color: 'blue', cursor: 'pointer' }}
                       onClick={() => openEditModal(cat)}>Edit</button>
-                    <button
-                      style={{ background: 'none', border: 'none', color: 'red', cursor: 'pointer' }}
-                      onClick={() => handleDelete(cat._id)}>Delete</button>
+                    {!["sale", "best sellers"].includes(cat.name.toLowerCase()) && (
+                      <button
+                        style={{ background: 'none', border: 'none', color: 'red', cursor: 'pointer' }}
+                        onClick={() => handleDelete(cat._id)}>Delete</button>
+                    )}
                   </td>
                 </tr>
               ))
@@ -147,6 +149,7 @@ export default function Categories() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
+                  disabled={editingCategory && ["sale", "best sellers"].includes(editingCategory.name.toLowerCase())}
                 />
               </div>
               <div className={styles.formGroup}>

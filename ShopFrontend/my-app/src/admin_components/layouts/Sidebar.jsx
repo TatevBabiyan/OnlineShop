@@ -17,6 +17,7 @@ export default function Sidebar() {
       <Link to="/admin/categories" className={getLinkClass("/admin/categories")}>Categories</Link>
       <Link to="/admin/banners" className={getLinkClass("/admin/banners")}>Banners</Link>
       <Link to="/admin/orders" className={getLinkClass("/admin/orders")}>Orders</Link>
+      <Link to="/admin/newsletter" className={getLinkClass("/admin/newsletter")}>Newsletter</Link>
     </aside>
   );
 }

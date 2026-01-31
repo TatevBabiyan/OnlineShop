@@ -4,9 +4,17 @@ from bson import ObjectId
 
 categories_bp = Blueprint("categories", __name__)
 
+import re
+
 def serialize_doc(doc):
     doc["_id"] = str(doc["_id"])
+    if "slug" not in doc and "name" in doc:
+        # Fallback for existing docs
+        doc["slug"] = re.sub(r'[^a-zA-Z0-9]', '-', doc["name"].lower()).strip('-')
     return doc
+
+def slugify(text):
+    return re.sub(r'[^a-zA-Z0-9]', '-', text.lower()).strip('-')
 
 @categories_bp.get("/")
 def get_categories():
@@ -20,16 +28,19 @@ def create_category():
     if not name:
         return jsonify({"error": "Name is required"}), 400
     
+    slug = slugify(name)
+    
     # Check uniqueness
-    if db.categories.find_one({"name": name}):
+    if db.categories.find_one({"$or": [{"name": name}, {"slug": slug}]}):
         return jsonify({"error": "Category already exists"}), 400
 
     res = db.categories.insert_one({
-        "name": name, 
+        "name": name,
+        "slug": slug,
         "description": data.get("description", ""),
         "image": data.get("image", "")
     })
-    return jsonify({"_id": str(res.inserted_id), "name": name}), 201
+    return jsonify({"_id": str(res.inserted_id), "name": name, "slug": slug}), 201
 
 @categories_bp.put("/<id>")
 def update_category(id):
@@ -39,10 +50,12 @@ def update_category(id):
     update_fields = {}
     if name:
         # Check uniqueness if name is changing
-        existing = db.categories.find_one({"name": name})
+        slug = slugify(name)
+        existing = db.categories.find_one({"$or": [{"name": name}, {"slug": slug}]})
         if existing and str(existing["_id"]) != id:
-             return jsonify({"error": "Category name already exists"}), 400
+             return jsonify({"error": "Category already exists"}), 400
         update_fields["name"] = name
+        update_fields["slug"] = slug
         
     if "description" in data:
         update_fields["description"] = data["description"]

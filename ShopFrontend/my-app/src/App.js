@@ -12,6 +12,10 @@ import CartPage from "./components/CartPage/CartPage";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 import OrderSuccessPage from "./pages/OrderSuccessPage/OrderSuccessPage";
 import AllProductsPage from "./pages/AllProductsPage/AllProductsPage";
+import FAQPage from "./pages/FAQPage/FAQPage";
+import SizeGuidePage from "./pages/SizeGuidePage/SizeGuidePage";
+import ShippingReturnsPage from "./pages/ShippingReturnsPage/ShippingReturnsPage";
+import ContactPage from "./pages/ContactPage/ContactPage";
 
 // ADMIN IMPORTS
 import Login from "./admin_components/pages/Login";
@@ -21,6 +25,7 @@ import Products from "./admin_components/pages/Products";
 import Banners from "./admin_components/pages/Banners";
 import Orders from "./admin_components/pages/Orders";
 import Stocks from "./admin_components/pages/Stocks";
+import Newsletter from "./admin_components/pages/Newsletter";
 
 import AdminLayout from "./admin_components/layouts/AdminLayout";
 import AdminRoute from "./admin_components/guards/AdminRoute";
@@ -113,6 +118,17 @@ function App() {
             </AdminRoute>
           }
         />
+        {/* NEWSLETTER */}
+        <Route
+          path="/admin/newsletter"
+          element={
+            <AdminRoute>
+              <AdminLayout>
+                <Newsletter />
+              </AdminLayout>
+            </AdminRoute>
+          }
+        />
       </Routes>
 
       {/* ================= USER FRONTEND ================= */}
@@ -141,6 +157,10 @@ function App() {
               <Route path="/cart" element={<CartPage />} />
               <Route path="/checkout" element={<CheckoutPage />} />
               <Route path="/order-success" element={<OrderSuccessPage />} />
+              <Route path="/faq" element={<FAQPage />} />
+              <Route path="/size-guide" element={<SizeGuidePage />} />
+              <Route path="/shipping-returns" element={<ShippingReturnsPage />} />
+              <Route path="/contact" element={<ContactPage />} />
             </Routes>
           </div>
 
