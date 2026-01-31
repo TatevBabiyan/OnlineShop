@@ -34,7 +34,7 @@
 }
 
 .filterBtn:hover {
-    border-color: #000;
+    border-color: #0f1e3f;
 }
 
 .sortSelect {
@@ -115,7 +115,7 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     margin-bottom: 8px;
-    color: #000;
+    color: #0f1e3f;
 }
 
 .price {
@@ -218,14 +218,14 @@
 }
 
 .colorSelected {
-    border-color: #000;
+    border-color: #0f1e3f;
 }
 
 .colorSelected::after {
     content: '';
     position: absolute;
     inset: -3px;
-    border: 1px solid #000;
+    border: 1px solid #0f1e3f;
     border-radius: 50%;
 }
 
@@ -248,9 +248,9 @@
 }
 
 .sizeSelected {
-    background: black;
+    background: #0f1e3f;
     color: white;
-    border-color: black;
+    border-color: #0f1e3f;
 }
 
 .actions {
@@ -261,7 +261,7 @@
 
 .applyBtn {
     flex: 1;
-    background: black;
+    background: #0f1e3f;
     color: white;
     border: none;
     padding: 14px;
@@ -274,8 +274,8 @@
 .clearBtn {
     flex: 1;
     background: white;
-    color: black;
-    border: 1px solid black;
+    color: #0f1e3f;
+    border: 1px solid #0f1e3f;
     padding: 14px;
     text-transform: uppercase;
     letter-spacing: 2px;

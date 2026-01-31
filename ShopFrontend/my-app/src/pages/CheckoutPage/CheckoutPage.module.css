@@ -110,7 +110,7 @@
   margin-top: 18px;
   width: 100%;
   padding: 14px;
-  background: black;
+  background: #0f1e3f;
   color: white;
   border-radius: 6px;
   border: none;
@@ -132,7 +132,7 @@
   position: absolute;
   top: -4px;
   left: -4px;
-  background: black;
+  background: #0f1e3f;
   color: white;
   font-size: 11px;
   width: 18px;
@@ -201,9 +201,9 @@
 }
 
 .shipOption.selected {
-  border-color: #000;
+  border-color: #0f1e3f;
   background: #fdfdfd;
-  box-shadow: 0 0 0 1px #000 inset;
+  box-shadow: 0 0 0 1px #0f1e3f inset;
 }
 
 .radioCircle {
@@ -218,14 +218,14 @@
 }
 
 .selected .radioCircle {
-  border-color: #000;
+  border-color: #0f1e3f;
 }
 
 .radioDot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #000;
+  background: #0f1e3f;
 }
 
 .shipInfo {

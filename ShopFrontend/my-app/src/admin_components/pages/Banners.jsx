@@ -106,72 +106,47 @@ export default function Banners() {
                     <label>Banner Type</label>
                     <select value={form.type} onChange={e => setForm({ ...form, type: e.target.value })}>
                         <option value="category">Category Grid (3 Images)</option>
-                        <option value="look">Shop The Look (ALL Products Slider)</option>
                     </select>
                 </div>
 
-                {form.type === "look" ? (
-                    <>
-                        <div className={styles.formGroup}>
-                            <label>Section Title (e.g. SHOP THE LOOK)</label>
-                            <input value={form.title} onChange={e => setForm({ ...form, title: e.target.value })} />
-                        </div>
-                        <div className={styles.formGroup}>
-                            <label>Sub-title / Price Label (e.g. SETS)</label>
-                            <input value={form.price} onChange={e => setForm({ ...form, price: e.target.value })} />
-                        </div>
-                        <div className={styles.formGroup}>
-                            <label>Main Background Image</label>
-                            {/* eslint-disable-next-line jsx-a11y/alt-text */}
-                            {form.image && <img src={`${config.apiHost}${form.image}`} style={{ width: 100, display: 'block', marginBottom: 10 }} />}
-                            <input type="file" onChange={handleImageUpload} />
-                        </div>
-
-                        <div className={styles.formGroup} style={{ marginTop: 10 }}>
-                            <p style={{ fontSize: '0.9rem', color: '#27285C', fontWeight: 'bold' }}>
-                                ✨ This banner will now automatically show ALL products in the slider.
-                            </p>
-                        </div>
-                    </>
-                ) : (
-                    <div className={styles.categoryGridForm}>
-                        {[0, 1, 2].map(i => (
-                            <div key={i} style={{ border: '1px solid #eee', padding: 15, marginBottom: 15 }}>
-                                <h4>Slot {i + 1}</h4>
-                                <div className={styles.formGroup}>
-                                    <label>Title</label>
-                                    <input value={form.titles[i]} onChange={e => {
-                                        const newTitles = [...form.titles];
-                                        newTitles[i] = e.target.value;
-                                        setForm({ ...form, titles: newTitles });
-                                    }} />
-                                </div>
-                                <div className={styles.formGroup}>
-                                    <label>Image</label>
-                                    {/* eslint-disable-next-line jsx-a11y/alt-text */}
-                                    {form.images[i] && <img src={`${config.apiHost}${form.images[i]}`} style={{ width: 100, display: 'block', marginBottom: 10 }} />}
-                                    <input type="file" onChange={(e) => handleImageUpload(e, i)} />
-                                </div>
-                                <div className={styles.formGroup}>
-                                    <label>Button Text</label>
-                                    <input value={form.buttonTexts[i]} onChange={e => {
-                                        const newBtnTexts = [...form.buttonTexts];
-                                        newBtnTexts[i] = e.target.value;
-                                        setForm({ ...form, buttonTexts: newBtnTexts });
-                                    }} />
-                                </div>
-                                <div className={styles.formGroup}>
-                                    <label>Link (e.g. /c/dresses)</label>
-                                    <input value={form.buttonLinks[i]} onChange={e => {
-                                        const newLinks = [...form.buttonLinks];
-                                        newLinks[i] = e.target.value;
-                                        setForm({ ...form, buttonLinks: newLinks });
-                                    }} />
-                                </div>
+                <div className={styles.categoryGridForm}>
+                    {[0, 1, 2].map(i => (
+                        <div key={i} style={{ border: '1px solid #eee', padding: 15, marginBottom: 15 }}>
+                            <h4>Slot {i + 1}</h4>
+                            <div className={styles.formGroup}>
+                                <label>Title</label>
+                                <input value={form.titles[i]} onChange={e => {
+                                    const newTitles = [...form.titles];
+                                    newTitles[i] = e.target.value;
+                                    setForm({ ...form, titles: newTitles });
+                                }} />
                             </div>
-                        ))}
-                    </div>
-                )}
+                            <div className={styles.formGroup}>
+                                <label>Image</label>
+                                {/* eslint-disable-next-line jsx-a11y/alt-text */}
+                                {form.images[i] && <img src={`${config.apiHost}${form.images[i]}`} style={{ width: 100, display: 'block', marginBottom: 10 }} />}
+                                <input type="file" onChange={(e) => handleImageUpload(e, i)} />
+                            </div>
+                            <div className={styles.formGroup}>
+                                <label>Button Text</label>
+                                <input value={form.buttonTexts[i]} onChange={e => {
+                                    const newBtnTexts = [...form.buttonTexts];
+                                    newBtnTexts[i] = e.target.value;
+                                    setForm({ ...form, buttonTexts: newBtnTexts });
+                                }} />
+                            </div>
+                            <div className={styles.formGroup}>
+                                <label>Link (e.g. /c/dresses)</label>
+                                <input value={form.buttonLinks[i]} onChange={e => {
+                                    const newLinks = [...form.buttonLinks];
+                                    newLinks[i] = e.target.value;
+                                    setForm({ ...form, buttonLinks: newLinks });
+                                }} />
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
 
                 <div className={styles.formActions} style={{ marginTop: 20 }}>
                     <button type="submit" className={styles.primaryButton}>

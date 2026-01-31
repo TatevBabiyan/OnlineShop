@@ -33,7 +33,7 @@ export default function Products() {
   const [editingId, setEditingId] = useState(null);
 
   const API_PRODUCTS = `${config.apiHost}/api/products`;
-  const API_STOCKS = `${config.apiHost}/api/stocks/`;
+  const API_STOCKS = `${config.apiHost}/api/stocks`;
   const API_CATEGORIES = `${config.apiHost}/api/categories`;
 
   const fetchData = useCallback(async () => {
@@ -41,8 +41,8 @@ export default function Products() {
     try {
       const [pRes, sRes, cRes] = await Promise.all([
         axios.get(API_PRODUCTS + "/"),
-        axios.get(API_STOCKS),
-        axios.get(API_CATEGORIES)
+        axios.get(API_STOCKS + "/"),
+        axios.get(API_CATEGORIES + "/")
       ]);
       setProducts(pRes.data);
       setStocks(sRes.data);

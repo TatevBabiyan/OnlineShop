@@ -139,7 +139,7 @@
 }
 
 .viewBtn {
-  background: #27285C;
+  background: #0f1e3f;
   color: white;
   border: none;
   padding: 14px 40px;
@@ -172,7 +172,7 @@
 }
 
 .activeDot {
-  background: #27285C;
+  background: #0f1e3f;
 }
 
 /* ARROWS - Outside container */

@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import HeroSlider from "../../components/HeroSlider/HeroSlider"; // NEW
 import CategoryBanners from "../../components/CategoryBanners/CategoryBanners";
-import ShopTheLook from "../../components/ShopTheLook/ShopTheLook";
 import axios from "axios";
 import config from "../../config";
 
 export default function HomePage() {
   const [categories, setCategories] = useState([]);
   const [categoryBanner, setCategoryBanner] = useState(null);
-  const [look, setLook] = useState(null);
 
   useEffect(() => {
     // 1. Fetch Categories for Hero Slider
@@ -21,7 +19,6 @@ export default function HomePage() {
       .then(res => res.json())
       .then(data => {
         setCategoryBanner(data.find(b => b.type === "category") || null);
-        setLook(data.find(b => b.type === "look") || null);
       });
   }, []);
 
@@ -34,8 +31,8 @@ export default function HomePage() {
       <div style={{ textAlign: "center", padding: "40px 0" }}>
         <a href="/all" style={{
           textDecoration: "none",
-          color: "#27285C",
-          borderBottom: "1px solid #27285C",
+          color: "#0f1e3f",
+          borderBottom: "1px solid #000",
           paddingBottom: "4px",
           fontFamily: "'Montserrat-Alt1', sans-serif",
           fontSize: "14px",
@@ -47,7 +44,6 @@ export default function HomePage() {
       </div>
 
       {categoryBanner && <CategoryBanners banner={categoryBanner} />}
-      {look && <ShopTheLook banner={look} />}
     </div>
   );
 }

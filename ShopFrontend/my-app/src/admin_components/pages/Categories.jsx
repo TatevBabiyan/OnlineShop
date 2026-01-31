@@ -20,7 +20,7 @@ export default function Categories() {
   const fetchCategories = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await axios.get(API_URL);
+      const res = await axios.get(API_URL + "/");
       setCategories(res.data);
     } catch (err) {
       console.error(err);
@@ -62,7 +62,7 @@ export default function Categories() {
         await axios.put(`${API_URL}/${editingCategory._id}`, { name, description, image });
       } else {
         // Create Mode
-        await axios.post(API_URL, { name, description, image });
+        await axios.post(API_URL + "/", { name, description, image });
       }
       setIsModalOpen(false);
       fetchCategories();

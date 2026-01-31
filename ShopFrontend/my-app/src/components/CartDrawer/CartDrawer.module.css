@@ -189,8 +189,8 @@
 .viewBtn {
   padding: 14px;
   background: white;
-  border: 1px solid #27285C;
-  color: #27285C;
+  border: 1px solid #0f1e3f;
+  color: #0f1e3f;
   font-family: 'Montserrat-Alt1', sans-serif;
   font-size: 12px;
   letter-spacing: 2px;
@@ -205,9 +205,9 @@
 
 .checkoutBtn {
   padding: 14px;
-  background: #27285C;
+  background: #0f1e3f;
   color: #fff;
-  border: 1px solid #27285C;
+  border: 1px solid #0f1e3f;
   font-family: 'Montserrat-Alt1', sans-serif;
   font-size: 12px;
   letter-spacing: 2px;

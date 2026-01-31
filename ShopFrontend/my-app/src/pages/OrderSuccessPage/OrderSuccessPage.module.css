@@ -16,7 +16,7 @@
   border-radius: 20px;
   display: flex;
   gap: 60px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .left {
@@ -38,7 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #151e36;
+  color: #0f1e3f;
   margin-bottom: 10px;
 }
 
@@ -57,7 +57,7 @@
 
 .primaryBtn {
   width: 100%;
-  background: #151e36;
+  background: #0f1e3f;
   color: white;
   border: none;
   padding: 12px 0;
@@ -89,7 +89,9 @@
   margin-bottom: 20px;
 }
 
-.summaryBlock, .itemsBlock, .totalBlock {
+.summaryBlock,
+.itemsBlock,
+.totalBlock {
   margin-bottom: 25px;
   background: #fafafa;
   padding: 15px 20px;
@@ -113,7 +115,7 @@
 
 .totalValue {
   font-weight: 700;
-  color: #151e36;
+  color: #0f1e3f;
   font-size: 18px;
 }
 
@@ -123,7 +125,8 @@
     gap: 30px;
   }
 
-  .right, .left {
+  .right,
+  .left {
     width: 100%;
   }
 }
