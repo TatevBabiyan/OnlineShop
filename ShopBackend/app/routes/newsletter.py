@@ -2,11 +2,11 @@ from flask import Blueprint, jsonify, request
 from app.extensions import db
 from datetime import datetime
 
-newsletter_bp = Blueprint("newsletter", __name__, url_prefix="/api/newsletter")
+newsletter_bp = Blueprint("newsletter_api", __name__)
 
 @newsletter_bp.post("/")
 def subscribe():
-    data = request.json
+    data = request.json or {}
     email = data.get("email")
     
     if not email:

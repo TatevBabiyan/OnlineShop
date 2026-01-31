@@ -252,7 +252,12 @@ export default function Products() {
                     )}
                   </td>
                   <td style={{ fontWeight: 500 }}>{p.title}</td>
-                  <td style={{ color: '#555' }}>{p.category}</td>
+                  <td style={{ color: '#555' }}>
+                    {(() => {
+                      const cat = categories.find(c => (c.slug === p.category || c.name.toLowerCase() === p.category?.toLowerCase() || c._id === p.category));
+                      return cat ? cat.name : p.category;
+                    })()}
+                  </td>
                   <td style={{ fontWeight: 600 }}>${p.price}</td>
                   <td>{p.quantity}</td>
                   <td>

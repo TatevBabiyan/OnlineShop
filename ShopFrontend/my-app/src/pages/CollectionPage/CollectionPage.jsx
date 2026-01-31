@@ -7,9 +7,28 @@ import { useParams, useNavigate } from "react-router-dom";
 function CollectionPage() {
   const { slug } = useParams();
   const [products, setProducts] = useState([]);
+  const [categoryName, setCategoryName] = useState("");
   const navigate = useNavigate();
 
   // No filters state anymore
+
+  // Fetch Category Name for Header
+  useEffect(() => {
+    axios.get(`${config.apiHost}/api/categories/`)
+      .then(res => {
+        const found = res.data.find(c => c.slug === slug || c._id === slug);
+        if (found) {
+          setCategoryName(found.name);
+        } else {
+          // Fallback if not found in list (e.g. "all", "sale" etc if they are not in cats)
+          const fallback = slug ? slug.replace(/-/g, ' ').toUpperCase() : "COLLECTION";
+          setCategoryName(fallback);
+        }
+      })
+      .catch(() => {
+        setCategoryName(slug ? slug.replace(/-/g, ' ').toUpperCase() : "COLLECTION");
+      });
+  }, [slug]);
 
   // Fetch Products
   useEffect(() => {
@@ -27,7 +46,7 @@ function CollectionPage() {
     <div className={styles.page}>
 
       <div className={styles.header}>
-        <h1>{(!slug || slug === "undefined") ? "COLLECTION" : slug.replace(/-/g, ' ').toUpperCase()}</h1>
+        <h1>{categoryName.toUpperCase()}</h1>
       </div>
 
       {/* Sort and Filters Removed */}

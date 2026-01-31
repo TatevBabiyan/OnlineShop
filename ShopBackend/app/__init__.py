@@ -42,7 +42,7 @@ def create_app():
     app.register_blueprint(orders_bp, url_prefix="/api/orders")
     app.register_blueprint(checkout_bp)   
     app.register_blueprint(stocks_bp, url_prefix="/api/stocks")
-    app.register_blueprint(newsletter_bp)
+    app.register_blueprint(newsletter_bp, url_prefix="/api/newsletter")
 
 
     # ===== STATIC UPLOADS SERVE =====
