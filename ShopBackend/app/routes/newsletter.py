@@ -13,11 +13,11 @@ def subscribe():
         return jsonify({"error": "Email is required"}), 400
         
     # Check if already exists
-    existing = db.newsletter.find_one({"email": email})
+    existing = db.mails.find_one({"email": email})
     if existing:
         return jsonify({"message": "Successfully subscribed"}), 200
         
-    db.newsletter.insert_one({
+    db.mails.insert_one({
         "email": email,
         "subscribed_at": datetime.utcnow()
     })
@@ -27,5 +27,5 @@ def subscribe():
 @newsletter_bp.get("/")
 def get_subscribers():
     # Admin only (implicitly for now, given the context of other admin routes)
-    subscribers = list(db.newsletter.find({}, {"_id": 0}))
+    subscribers = list(db.mails.find({}, {"_id": 0}))
     return jsonify(subscribers)

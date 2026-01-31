@@ -90,7 +90,8 @@ def checkout():
         "shippingMethod": data.get("shippingMethod", "haypost"), # Add shippingMethod
         "total": data["total"],
         "payment": data["payment"],
-        "status": "pending"
+        "status": "pending",
+        "note": data.get("note", "")
     }
 
     # CRITICAL FIX: Save to db.useraddress as expected by admin panel

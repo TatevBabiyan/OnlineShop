@@ -95,6 +95,11 @@ export default function Orders() {
                     <div style={{ fontSize: '0.75rem', color: '#888', marginTop: 4 }}>
                       {order.city}<br />{order.address} {order.zip}
                     </div>
+                    {order.note && (
+                      <div style={{ fontSize: '0.75rem', color: '#c2410c', marginTop: 8, padding: '4px 8px', background: '#fff7ed', borderRadius: 4, borderLeft: '2px solid #c2410c' }}>
+                        <strong>Note:</strong> {order.note}
+                      </div>
+                    )}
                   </td>
                   <td style={{ minWidth: 250 }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>

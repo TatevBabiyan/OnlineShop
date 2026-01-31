@@ -55,10 +55,21 @@ export default function Banners() {
             : `${config.apiHost}/api/banner/`;
         const method = editing ? "put" : "post";
 
-        axios[method](url, form).then(() => {
+        const payload = { ...form };
+        if (form.type === "category") {
+            // Backend expects single title/buttonText/buttonLink as arrays for category type
+            payload.title = form.titles;
+            payload.buttonText = form.buttonTexts;
+            payload.buttonLink = form.buttonLinks;
+        }
+
+        axios[method](url, payload).then(() => {
             setEditing(null);
             setForm(emptyForm);
             fetchBanners();
+        }).catch(err => {
+            console.error("BANNER SAVE ERROR:", err.response?.data || err.message);
+            alert(err.response?.data?.error || "Failed to save banner");
         });
     };
 

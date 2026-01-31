@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import config from "../../config";
 import styles from "./Footer.module.css";
@@ -30,6 +31,7 @@ function Footer() {
         <div className={styles.col}>
           <div className={styles.logo}>BASIQ</div>
           <p className={styles.tagline}>Your detail and solution</p>
+          <p className={styles.locationDetail}>Yerevan, Armenia</p>
           <div className={styles.socials}>
             <a href="https://www.instagram.com/yourbasiq?igsh=MW5qdjJsb2R6YXlmcA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -45,9 +47,9 @@ function Footer() {
         {/* COL 2: Shop */}
         <div className={styles.col}>
           <h4>SHOP</h4>
-          <a href="/all">Best Sellers</a>
-          <a href="/all">All Products</a>
-          <a href="/all">Sale</a>
+          <Link to="/c/best-sellers">Best Sellers</Link>
+          <Link to="/all">All Products</Link>
+          <Link to="/c/sale">Sale</Link>
         </div>
 
         {/* COL 3: Customer Care */}

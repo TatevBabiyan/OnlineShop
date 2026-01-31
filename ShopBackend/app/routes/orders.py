@@ -25,7 +25,8 @@ def get_orders():
             "total": o.get("total", 0),
             "status": o.get("status"),
             # Frontend calls it productIds, but we saved it as items
-            "productIds": o.get("items", []) 
+            "productIds": o.get("items", []),
+            "note": o.get("note", "")
         }
         results.append(mapped_order)
 

@@ -4,6 +4,7 @@ export const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
+  const [note, setNote] = useState("");
 
   const addToCart = (item) => {
     // check if same product/color/size exists
@@ -38,7 +39,7 @@ export function CartProvider({ children }) {
     setCart((prev) => prev.filter((x) => x !== item));
   };
 
-  const value = { cart, addToCart, updateQty, removeFromCart };
+  const value = { cart, addToCart, updateQty, removeFromCart, note, setNote };
 
   return (
     <CartContext.Provider value={value}>

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import config from "../../config";
 
 function CartPage() {
-  const { cart, updateQty, removeFromCart } = useContext(CartContext);
+  const { cart, updateQty, removeFromCart, note, setNote } = useContext(CartContext);
   const navigate = useNavigate();
 
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
@@ -80,7 +80,11 @@ function CartPage() {
           {/* ORDER NOTE */}
           <div className={styles.noteBlock}>
             <label>Add order note</label>
-            <textarea placeholder="How can we help you?" />
+            <textarea
+              placeholder="How can we help you?"
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+            />
           </div>
 
           {/* SUMMARY */}

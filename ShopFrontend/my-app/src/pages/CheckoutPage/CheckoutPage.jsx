@@ -7,7 +7,7 @@ import axios from "axios";
 import config from "../../config";
 
 function CheckoutPage() {
-  const { cart } = useContext(CartContext);
+  const { cart, note } = useContext(CartContext);
   const navigate = useNavigate();
 
   const [shippingMethod, setShippingMethod] = useState("haypost"); // 'haypost' | 'pickup' | 'express'
@@ -49,7 +49,8 @@ function CheckoutPage() {
       shipping,
       shippingMethod, // Added
       total,
-      payment: "Cash"
+      payment: "Cash",
+      note: note || "" // Include the cart note
     };
 
     try {
@@ -96,10 +97,9 @@ function CheckoutPage() {
             className={styles.input}
             value={form.country}
             onChange={handleChange}
+            disabled
           >
             <option>Armenia</option>
-            <option>USA</option>
-            <option>Germany</option>
           </select>
 
           <div className={styles.row2}>

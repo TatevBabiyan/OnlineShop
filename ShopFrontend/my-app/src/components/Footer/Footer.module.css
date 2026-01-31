@@ -53,6 +53,17 @@ h6 {
   font-weight: 300;
 }
 
+.col a {
+  color: #999;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.3s;
+}
+
+.col a:hover {
+  color: white;
+}
+
 .socialLink {
   color: #999;
   text-decoration: none;
