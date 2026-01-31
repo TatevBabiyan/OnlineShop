@@ -30,17 +30,6 @@ function CollectionPage() {
       });
   }, [slug]);
 
-  // Fetch Products
-  useEffect(() => {
-    const params = new URLSearchParams();
-    if (slug) params.append("category", slug);
-
-    const url = `${config.apiHost}/api/products/?${params.toString()}`;
-
-    axios.get(url)
-      .then(res => setProducts(res.data))
-      .catch(err => console.log("PRODUCTS ERROR:", err));
-  }, [slug]);
 
   return (
     <div className={styles.page}>
