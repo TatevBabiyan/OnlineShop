@@ -1,9 +1,9 @@
 /* Global Admin Variables */
 :root {
-  --admin-bg: #f4f6f9;
-  --sidebar-bg: #0f1e3f;
-  --sidebar-text: #e2e8f0;
-  --sidebar-active: #3b82f6;
+  --admin-bg: #ffffff;
+  --sidebar-bg: #ffffff;
+  --sidebar-text: #0f1e3f;
+  --sidebar-active: #f1f5f9;
   --header-bg: #ffffff;
   --text-primary: #111827;
   --text-secondary: #6b7280;
@@ -40,17 +40,16 @@ body {
 /* Sidebar */
 .sidebar {
   width: 260px;
-  background-color: var(--sidebar-bg);
-  color: var(--sidebar-text);
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  border-right: 1px solid var(--border-color);
 }
 
 .sidebar h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--sidebar-text);
   margin-bottom: 2rem;
   text-align: center;
   letter-spacing: 0.5px;
@@ -68,13 +67,14 @@ body {
 }
 
 .sidebar a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background-color: #f8fafc;
+  color: var(--primary-color);
 }
 
 .sidebar a.active {
   background-color: var(--sidebar-active);
-  color: #fff;
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 /* Topbar */
@@ -120,7 +120,7 @@ table {
 }
 
 th {
-  background-color: #f9fafb;
+  background-color: #ffffff;
   text-align: left;
   padding: 0.75rem 1.5rem;
   font-size: 0.75rem;

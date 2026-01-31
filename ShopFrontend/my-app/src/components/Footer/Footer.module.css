@@ -9,10 +9,11 @@ h6 {
 }
 
 .footer {
-  background: #0f1e3f;
-  color: white;
+  background: #ffffff;
+  color: #0f1e3f;
   padding: 80px 40px 40px;
   font-family: 'Montserrat-Alt1', sans-serif;
+  border-top: 1px solid #eeeeee;
 }
 
 .container {
@@ -22,7 +23,7 @@ h6 {
   grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
   gap: 60px;
   padding-bottom: 80px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .col {
@@ -48,7 +49,7 @@ h6 {
 .col h4 {
   font-size: 12px;
   letter-spacing: 2px;
-  color: #fff;
+  color: #0f1e3f;
   margin: 0 0 10px 0;
   font-weight: 300;
 }
@@ -93,9 +94,9 @@ h6 {
 
 .input {
   background: transparent;
-  border: 1px solid #333;
+  border: 1px solid #eeeeee;
   padding: 12px;
-  color: white;
+  color: #0f1e3f;
   font-family: inherit;
   font-size: 13px;
   border-radius: 0;
@@ -108,8 +109,8 @@ h6 {
 }
 
 .button {
-  background: white;
-  color: #0f1e3f;
+  background: #0f1e3f;
+  color: #ffffff;
   border: none;
   padding: 12px;
   font-family: inherit;
