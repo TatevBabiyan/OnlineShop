@@ -42,7 +42,7 @@ function CartDrawer({ onClose }) {
 
               <div className={styles.info}>
                 <div className={styles.title}>{item.title} {item.variantColor}</div>
-                <div className={styles.price}>{item.price.toLocaleString()} AMD</div>
+                <div className={styles.price}>֏ {item.price.toLocaleString()}</div>
                 <div className={styles.variant}>
                   {item.size} / {item.variantColor}
                 </div>
@@ -66,7 +66,7 @@ function CartDrawer({ onClose }) {
               VIEW CART
             </button>
             <button className={styles.checkoutBtn} onClick={handleCheckout}>
-              CHECKOUT • {subtotal.toLocaleString()} AMD
+              CHECKOUT • ֏ {subtotal.toLocaleString()}
             </button>
           </div>
         )}

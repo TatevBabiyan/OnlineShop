@@ -63,7 +63,7 @@ function OrderSuccessPage() {
             {cart.map((item, i) => (
               <div key={i} className={styles.itemRow}>
                 <span>{item.title} ({item.variantColor})</span>
-                <span>{item.qty} × {item.price.toLocaleString()} AMD</span>
+                <span>{item.qty} × ֏ {item.price.toLocaleString()}</span>
               </div>
             ))}
           </div>
@@ -72,7 +72,7 @@ function OrderSuccessPage() {
             <div className={styles.line}>
               <span>Total</span>
               <span className={styles.totalValue}>
-                {total.toLocaleString()} AMD
+                ֏ {total.toLocaleString()}
               </span>
             </div>
           </div>

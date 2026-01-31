@@ -258,7 +258,7 @@ export default function Products() {
                       return cat ? cat.name : p.category;
                     })()}
                   </td>
-                  <td style={{ fontWeight: 600 }}>${p.price}</td>
+                  <td style={{ fontWeight: 600 }}>֏ {p.price?.toLocaleString()}</td>
                   <td>{p.quantity}</td>
                   <td>
                     <button onClick={() => openEditModal(p)} style={{ marginRight: 10, cursor: 'pointer', background: 'none', border: 'none', color: '#2563eb', fontWeight: 500 }}>Edit</button>
@@ -467,7 +467,7 @@ export default function Products() {
                     </div>
 
                     <div className={styles.formGroup}>
-                      <label>Price ($)</label>
+                      <label>Price (֏)</label>
                       <input type="number" value={formData.price} onChange={e => setFormData({ ...formData, price: e.target.value })} required />
                     </div>
 

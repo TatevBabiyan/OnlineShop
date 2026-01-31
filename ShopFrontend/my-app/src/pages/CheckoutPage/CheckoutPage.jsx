@@ -221,7 +221,7 @@ function CheckoutPage() {
           </div>
 
           <button className={styles.placeOrder} onClick={handlePlaceOrder}>
-            Pay with Cash • {total.toLocaleString()} AMD
+            Pay with Cash • ֏ {total.toLocaleString()}
           </button>
         </div>
 
@@ -242,24 +242,24 @@ function CheckoutPage() {
                 </div>
               </div>
               <div className={styles.sPrice}>
-                {(item.price * item.qty).toLocaleString()} AMD
+                ֏ {(item.price * item.qty).toLocaleString()}
               </div>
             </div>
           ))}
 
           <div className={styles.sumLine}>
             <span>Subtotal ({cart.length} items)</span>
-            <span>{subtotal.toLocaleString()} AMD</span>
+            <span>֏ {subtotal.toLocaleString()}</span>
           </div>
 
           <div className={styles.sumLine}>
             <span>Shipping</span>
-            <span>{shipping.toLocaleString()} AMD</span>
+            <span>֏ {shipping.toLocaleString()}</span>
           </div>
 
           <div className={styles.totalLine}>
             <span>Total</span>
-            <span>֏{total.toLocaleString()}.00</span>
+            <span>֏ {total.toLocaleString()}</span>
           </div>
         </div>
       </div>

@@ -154,7 +154,7 @@ function ProductPage() {
       <div className={styles.right}>
         <h1 className={styles.title}>{product.title}</h1>
         {product.sku && <div className={styles.sku}>SKU: {product.sku}</div>}
-        <div className={styles.price}>{product.price} AMD</div>
+        <div className={styles.price}>֏ {product.price?.toLocaleString()}</div>
 
 
         {/* SIZES */}

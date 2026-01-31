@@ -123,7 +123,7 @@ export default function Orders() {
                     </div>
                   </td>
                   <td style={{ fontWeight: 600, color: '#16a34a' }}>
-                    ${(order.total / 100).toFixed(2)}
+                    ֏ {(order.total / 100).toLocaleString()}
                   </td>
                   <td>
                     <span style={{

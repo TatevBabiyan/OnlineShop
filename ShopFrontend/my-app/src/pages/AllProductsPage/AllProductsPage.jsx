@@ -55,7 +55,7 @@ function AllProductsPage() {
               </div>
               <div className={styles.info}>
                 <div className={styles.title}>{p.title}</div>
-                <div className={styles.price}>{p.price} AMD</div>
+                <div className={styles.price}>֏ {p.price?.toLocaleString()}</div>
 
                 {/* COLOR PREVIEW */}
                 {p.colors && p.colors.length > 0 && (

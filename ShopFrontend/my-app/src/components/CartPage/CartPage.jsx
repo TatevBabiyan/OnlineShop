@@ -38,7 +38,7 @@ function CartPage() {
                   </div>
 
                   <div className={styles.price}>
-                    {item.price.toLocaleString()} AMD
+                    ֏ {item.price.toLocaleString()}
                   </div>
 
                   <div className={styles.variant}>
@@ -71,7 +71,7 @@ function CartPage() {
 
                 {/* TOTAL PRICE RIGHT SIDE */}
                 <div className={styles.totalRight}>
-                  {(item.price * item.qty).toLocaleString()} AMD
+                  ֏ {(item.price * item.qty).toLocaleString()}
                 </div>
               </div>
             ))}
@@ -91,7 +91,7 @@ function CartPage() {
           <div className={styles.summary}>
             <div className={styles.summaryLine}>
               <span>Total:</span>
-              <span>{subtotal.toLocaleString()} AMD</span>
+              <span>֏ {subtotal.toLocaleString()}</span>
             </div>
 
             <div className={styles.taxInfo}>
