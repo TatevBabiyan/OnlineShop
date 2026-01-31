@@ -8,7 +8,6 @@ function ShopTheLook({ banner }) {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [activeImgIndex, setActiveImgIndex] = useState(0);
 
   useEffect(() => {
     if (banner) {

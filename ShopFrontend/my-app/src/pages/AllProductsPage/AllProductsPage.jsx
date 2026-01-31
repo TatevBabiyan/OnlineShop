@@ -8,7 +8,7 @@ import FilterDrawer from "../../components/FilterDrawer/FilterDrawer";
 
 function AllProductsPage() {
   const [products, setProducts] = useState([]);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
   // URL Params
