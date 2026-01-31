@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import config from "../../config";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import SortFilterBar from "../../components/SortFilterBar/SortFilterBar";
-import FilterDrawer from "../../components/FilterDrawer/FilterDrawer";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 function AllProductsPage() {
   const [products, setProducts] = useState([]);
@@ -14,36 +13,19 @@ function AllProductsPage() {
   // URL Params
   const searchQuery = searchParams.get("search");
 
-  // State
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [filters, setFilters] = useState({
-    colors: [],
-    sizes: [],
-    fabrics: [],
-    minPrice: "",
-    maxPrice: ""
-  });
-  const [sortBy, setSortBy] = useState("newest");
+  // No filters state anymore
 
   // Fetch Products
   useEffect(() => {
     const params = new URLSearchParams();
     if (searchQuery) params.append("search", searchQuery);
 
-    filters.colors.forEach(c => params.append("colors", c));
-    filters.sizes.forEach(s => params.append("sizes", s));
-    filters.fabrics?.forEach(f => params.append("fabrics", f));
-    if (filters.minPrice) params.append("min_price", filters.minPrice);
-    if (filters.maxPrice) params.append("max_price", filters.maxPrice);
-
-    params.append("sort", sortBy);
-
     const url = `${config.apiHost}/api/products/?${params.toString()}`;
 
     axios.get(url)
       .then(res => setProducts(res.data))
       .catch(err => console.log("PRODUCTS ERROR:", err));
-  }, [searchQuery, filters, sortBy]);
+  }, [searchQuery]);
 
   return (
     <div className={styles.page}>
@@ -52,12 +34,7 @@ function AllProductsPage() {
         <h1>{searchQuery ? `Result for "${searchQuery}"` : "All Products"}</h1>
       </div>
 
-      {/* NEW SORT/FILTER BAR */}
-      <SortFilterBar
-        onFilterClick={() => setIsDrawerOpen(true)}
-        onSortChange={setSortBy}
-        currentSort={sortBy}
-      />
+      {/* Sort and Filters Removed */}
 
       {/* GRID */}
       <div className={styles.grid}>
@@ -96,13 +73,7 @@ function AllProductsPage() {
         })}
       </div>
 
-      {/* LEFT FILTER DRAWER */}
-      <FilterDrawer
-        isOpen={isDrawerOpen}
-        onClose={() => setIsDrawerOpen(false)}
-        currentFilters={filters}
-        onApply={setFilters}
-      />
+      {/* Filter Drawer Removed */}
     </div>
   );
 }

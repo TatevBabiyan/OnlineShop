@@ -1,14 +1,14 @@
 /* Global Admin Variables */
 :root {
   --admin-bg: #f4f6f9;
-  --sidebar-bg: #1e293b;
+  --sidebar-bg: #27285C;
   --sidebar-text: #e2e8f0;
   --sidebar-active: #3b82f6;
   --header-bg: #ffffff;
   --text-primary: #111827;
   --text-secondary: #6b7280;
   --border-color: #e5e7eb;
-  --primary-color: #2563eb;
+  --primary-color: #27285C;
   --danger-color: #ef4444;
   --success-color: #10b981;
 }

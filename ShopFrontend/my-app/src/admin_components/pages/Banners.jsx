@@ -147,29 +147,10 @@ export default function Banners() {
                             <input type="file" onChange={handleImageUpload} />
                         </div>
 
-                        <div className={styles.formGroup} style={{ marginTop: 20 }}>
-                            <label>Linked Products (Select multiple)</label>
-                            <p style={{ fontSize: '0.8rem', color: '#666' }}>Leave empty to show ALL products by default.</p>
-
-                            <input
-                                placeholder="Filter products..."
-                                value={searchTerm}
-                                onChange={e => setSearchTerm(e.target.value)}
-                                style={{ marginBottom: 10, padding: 8, width: '100%' }}
-                            />
-
-                            <div style={{ maxHeight: 200, overflowY: 'auto', border: '1px solid #ddd', padding: 10 }}>
-                                {filteredProducts.map(p => (
-                                    <div key={p._id} style={{ display: 'flex', alignItems: 'center', marginBottom: 5 }}>
-                                        <input
-                                            type="checkbox"
-                                            checked={(form.linkedProducts || []).includes(p._id)}
-                                            onChange={() => toggleProductSelection(p._id)}
-                                        />
-                                        <span style={{ marginLeft: 10 }}>{p.title}</span>
-                                    </div>
-                                ))}
-                            </div>
+                        <div className={styles.formGroup} style={{ marginTop: 10 }}>
+                            <p style={{ fontSize: '0.9rem', color: '#27285C', fontWeight: 'bold' }}>
+                                ✨ This banner will now automatically show ALL products in the slider.
+                            </p>
                         </div>
                     </>
                 ) : (

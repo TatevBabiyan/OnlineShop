@@ -3,44 +3,26 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import config from "../../config";
 import { useParams, useNavigate } from "react-router-dom";
-import SortFilterBar from "../../components/SortFilterBar/SortFilterBar";
-import FilterDrawer from "../../components/FilterDrawer/FilterDrawer";
+import { useParams, useNavigate } from "react-router-dom";
 
 function CollectionPage() {
   const { slug } = useParams();
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
-  // State
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [filters, setFilters] = useState({
-    colors: [],
-    sizes: [],
-    fabrics: [],
-    minPrice: "",
-    maxPrice: ""
-  });
-  const [sortBy, setSortBy] = useState("newest");
+  // No filters state anymore
 
   // Fetch Products
   useEffect(() => {
     const params = new URLSearchParams();
     if (slug) params.append("category", slug);
 
-    filters.colors.forEach(c => params.append("colors", c));
-    filters.sizes.forEach(s => params.append("sizes", s));
-    filters.fabrics?.forEach(f => params.append("fabrics", f));
-    if (filters.minPrice) params.append("min_price", filters.minPrice);
-    if (filters.maxPrice) params.append("max_price", filters.maxPrice);
-
-    params.append("sort", sortBy);
-
     const url = `${config.apiHost}/api/products/?${params.toString()}`;
 
     axios.get(url)
       .then(res => setProducts(res.data))
       .catch(err => console.log("PRODUCTS ERROR:", err));
-  }, [slug, filters, sortBy]);
+  }, [slug]);
 
   return (
     <div className={styles.page}>
@@ -49,12 +31,7 @@ function CollectionPage() {
         <h1>{slug?.toUpperCase()}</h1>
       </div>
 
-      {/* NEW SORT/FILTER BAR */}
-      <SortFilterBar
-        onFilterClick={() => setIsDrawerOpen(true)}
-        onSortChange={setSortBy}
-        currentSort={sortBy}
-      />
+      {/* Sort and Filters Removed */}
 
       {/* GRID */}
       <div className={styles.grid}>
@@ -83,13 +60,7 @@ function CollectionPage() {
         })}
       </div>
 
-      {/* LEFT FILTER DRAWER */}
-      <FilterDrawer
-        isOpen={isDrawerOpen}
-        onClose={() => setIsDrawerOpen(false)}
-        currentFilters={filters}
-        onApply={setFilters}
-      />
+      {/* Filter Drawer Removed */}
     </div>
   );
 }

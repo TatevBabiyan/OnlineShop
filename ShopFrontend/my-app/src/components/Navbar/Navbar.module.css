@@ -29,7 +29,7 @@
 }
 
 .link {
-  color: #000;
+  color: #27285C;
   font-family: 'Montserrat-Alt1', sans-serif;
   font-size: 11px;
   letter-spacing: 2px;
@@ -67,7 +67,7 @@
 }
 
 .iconLink {
-  color: #000;
+  color: #27285C;
   font-family: 'Montserrat-Alt1', sans-serif;
   font-size: 11px;
   letter-spacing: 2px;
@@ -103,7 +103,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  border-bottom: 1px solid #000;
+  border-bottom: 2px solid #27285C;
 }
 
 .inlineSearchInput {
@@ -125,7 +125,7 @@
   cursor: pointer;
   padding: 0;
   line-height: 1;
-  color: #000;
+  color: #27285C;
 }
 
 @media (max-width: 768px) {

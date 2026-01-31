@@ -10,20 +10,11 @@ function ShopTheLook({ banner }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    if (banner) {
-      if (banner.linkedProducts && banner.linkedProducts.length > 0) {
-        const ids = banner.linkedProducts.join(",");
-        axios.get(`${config.apiHost}/api/products/?ids=${ids}`)
-          .then(res => setProducts(res.data))
-          .catch(err => console.error(err));
-      } else {
-        // Fetch ALL products if none linked
-        axios.get(`${config.apiHost}/api/products/`)
-          .then(res => setProducts(res.data))
-          .catch(err => console.error(err));
-      }
-    }
-  }, [banner]);
+    // Always fetch ALL products for the slider
+    axios.get(`${config.apiHost}/api/products/`)
+      .then(res => setProducts(res.data))
+      .catch(err => console.error(err));
+  }, []);
 
   if (!banner) return null;
 

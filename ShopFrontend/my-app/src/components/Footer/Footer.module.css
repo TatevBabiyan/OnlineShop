@@ -1,5 +1,5 @@
 .footer {
-  background: #111;
+  background: #27285C;
   color: white;
   padding: 80px 40px 40px;
   font-family: 'Montserrat-Alt1', sans-serif;
@@ -85,7 +85,7 @@
 
 .button {
   background: white;
-  color: black;
+  color: #27285C;
   border: none;
   padding: 12px;
   font-family: inherit;

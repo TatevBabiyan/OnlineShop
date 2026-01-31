@@ -67,7 +67,9 @@ export default function Categories() {
       setIsModalOpen(false);
       fetchCategories();
     } catch (err) {
-      setError(err.response?.data?.error || "An error occurred");
+      const msg = err.response?.data?.error || err.message || "An error occurred";
+      setError(msg);
+      console.error("CATEGORY ERROR:", err);
     }
   };
 

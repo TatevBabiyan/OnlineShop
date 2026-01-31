@@ -3,14 +3,28 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 
 # Load locally for testing, or rely on Render environment
+import sys
 load_dotenv()
 
 def seed_admin():
-    mongo_uri = os.environ.get("MONGO_URI", "mongodb://localhost:27017/shopdb")
+    # Priority: Command line argument > Environment variable > Localhost
+    if len(sys.argv) > 1:
+        mongo_uri = sys.argv[1]
+    else:
+        mongo_uri = os.environ.get("MONGO_URI", "mongodb://localhost:27017/shopdb")
+    
     client = MongoClient(mongo_uri)
     
     # Extract DB name from URI or use default
-    db_name = mongo_uri.split("/")[-1].split("?")[0] or "shopdb"
+    if "mongodb+srv" in mongo_uri:
+        # Atlas URIs usually look like ...net/db_name?options
+        parts = mongo_uri.split("/")
+        if len(parts) > 3:
+            db_name = parts[3].split("?")[0]
+        else:
+            db_name = "shopdb"
+    else:
+        db_name = mongo_uri.split("/")[-1].split("?")[0] or "shopdb"
     db = client[db_name]
     
     print(f"Connecting to database: {db_name}...")
