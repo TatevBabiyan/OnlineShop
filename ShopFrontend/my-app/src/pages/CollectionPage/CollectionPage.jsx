@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import config from "../../config";
 import { useParams, useNavigate } from "react-router-dom";
-import { useParams, useNavigate } from "react-router-dom";
 
 function CollectionPage() {
   const { slug } = useParams();
