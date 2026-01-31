@@ -35,7 +35,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 30px;
+  padding: 24px 40px;
   border-bottom: 1px solid #eee;
 }
 
@@ -79,7 +79,7 @@
 .item {
   display: flex;
   gap: 16px;
-  padding: 20px 30px;
+  padding: 20px 40px;
   border-bottom: 1px solid #f9f9f9;
 }
 
@@ -178,7 +178,7 @@
 
 /* Footer */
 .footer {
-  padding: 30px;
+  padding: 30px 40px;
   border-top: 1px solid #eee;
   display: flex;
   flex-direction: column;
@@ -221,8 +221,20 @@
   border-color: #333;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .drawer {
-    width: 100%;
+    width: 60%;
+  }
+
+  .header {
+    padding: 24px 20px;
+  }
+
+  .item {
+    padding: 20px;
+  }
+
+  .footer {
+    padding: 30px 20px;
   }
 }

@@ -259,7 +259,7 @@ function CheckoutPage() {
 
           <div className={styles.totalLine}>
             <span>Total</span>
-            <span>AMD {total.toLocaleString()}</span>
+            <span>֏{total.toLocaleString()}.00</span>
           </div>
         </div>
       </div>

@@ -1,9 +1,9 @@
 .page {
   display: flex;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px;
   box-sizing: border-box;
 }
 
@@ -282,7 +282,7 @@
 @media (max-width: 900px) {
   .page {
     flex-direction: column;
-    padding: 0;
+    padding: 0 40px;
   }
 
   .left {
@@ -293,7 +293,7 @@
   .right {
     width: 100%;
     position: static;
-    padding: 40px 20px;
+    padding: 40px 0;
   }
 
   .title {
@@ -332,5 +332,15 @@
 
   .cContent {
     font-size: 11px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 20px;
+  }
+
+  .right {
+    padding: 30px 0;
   }
 }

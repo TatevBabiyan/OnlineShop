@@ -71,14 +71,28 @@ function Navbar({ onOpenCollections, onLogoClick, onOpenCart }) {
             <button className={styles.closeInline} onClick={() => setSearchOpen(false)}>×</button>
           </div>
         ) : (
-          <button className={styles.iconLink} onClick={() => setSearchOpen(true)}>
-            SEARCH
-          </button>
-        )}
+          <>
+            <button className={`${styles.iconLink} ${styles.searchIcon}`} onClick={() => setSearchOpen(true)}>
+              <span className={styles.desktopSearchText}>SEARCH</span>
+              <svg className={styles.mobileSearchIcon} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
 
-        <span className={styles.cartIcon} onClick={onOpenCart}>
-          BAG {cart.length > 0 && `(${cart.length})`}
-        </span>
+            <span className={styles.cartIcon} onClick={onOpenCart}>
+              <span className={styles.desktopCartText}>BAG {cart.length > 0 && `(${cart.length})`}</span>
+              <div className={styles.mobileCartIcon}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                {cart.length > 0 && <span className={styles.cartBadge}>{cart.length}</span>}
+              </div>
+            </span>
+          </>
+        )}
       </div>
     </nav>
   );
