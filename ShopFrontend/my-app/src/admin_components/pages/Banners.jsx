@@ -62,6 +62,11 @@ export default function Banners() {
             payload.title = form.titles;
             payload.buttonText = form.buttonTexts;
             payload.buttonLink = form.buttonLinks;
+
+            // Remove plural keys to keep DB clean
+            delete payload.titles;
+            delete payload.buttonTexts;
+            delete payload.buttonLinks;
         }
 
         axios[method](url, payload).then(() => {

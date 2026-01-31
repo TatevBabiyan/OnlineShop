@@ -93,12 +93,6 @@ function ProductPage() {
     { label: "Shipping", key: "shipping" },
   ];
 
-  // Helper for image URLs
-  const getImgUrl = (url) => {
-    if (!url) return "";
-    return url.startsWith("http") ? url : `${config.apiHost}${url}`;
-  };
-
   const handleNext = () => {
     if (!product || !product.images) return;
     setActiveImageIndex((prev) => (prev + 1) % product.images.length);
