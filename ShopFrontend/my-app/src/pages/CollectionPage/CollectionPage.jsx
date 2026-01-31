@@ -30,6 +30,14 @@ function CollectionPage() {
       });
   }, [slug]);
 
+  // Fetch Products for this collection
+  useEffect(() => {
+    if (!slug) return;
+    axios.get(`${config.apiHost}/api/products/?category=${slug}`)
+      .then(res => setProducts(res.data))
+      .catch(err => console.log("COLLECTION PRODUCTS ERROR:", err));
+  }, [slug]);
+
 
   return (
     <div className={styles.page}>
