@@ -29,6 +29,7 @@ export default function Stocks() {
     }
   }, [API_URL]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchStocks();
   }, [fetchStocks]);

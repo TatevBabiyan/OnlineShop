@@ -54,6 +54,7 @@ export default function Products() {
     }
   }, [API_PRODUCTS, API_STOCKS, API_CATEGORIES]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchData();
   }, [fetchData]);

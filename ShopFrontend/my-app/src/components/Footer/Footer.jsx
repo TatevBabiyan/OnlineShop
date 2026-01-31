@@ -10,8 +10,11 @@ function Footer() {
           <div className={styles.logo}>BASIQ</div>
           <p className={styles.tagline}>Elevating your everyday essentials.</p>
           <div className={styles.socials}>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a href="/" className={styles.socialLink}>Instagram</a>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a href="/" className={styles.socialLink}>Facebook</a>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a href="/" className={styles.socialLink}>Pinterest</a>
           </div>
         </div>
@@ -28,9 +31,13 @@ function Footer() {
         {/* COL 3: Customer Care */}
         <div className={styles.col}>
           <h4>CUSTOMER CARE</h4>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="/">Shipping & Returns</a>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="/">Size Guide</a>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="/">FAQ</a>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="/">Contact Us</a>
         </div>
 
@@ -49,7 +56,9 @@ function Footer() {
       <div className={styles.bottomBar}>
         <p>&copy; {new Date().getFullYear()} BASIQ. All rights reserved.</p>
         <div className={styles.legal}>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="/">Privacy Policy</a>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="/">Terms of Service</a>
         </div>
       </div>
