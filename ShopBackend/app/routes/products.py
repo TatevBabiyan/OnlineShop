@@ -32,7 +32,28 @@ def get_all_products():
 
     if category:
         import re
-        query["category"] = {"$regex": f"^{re.escape(category)}$", "$options": "i"}
+        # Find category by slug or name or ID
+        cat_obj = db.categories.find_one({
+            "$or": [
+                {"slug": category},
+                {"name": {"$regex": f"^{re.escape(category)}$", "$options": "i"}},
+                {"_id": ObjectId(category) if ObjectId.is_valid(category) else None}
+            ]
+        })
+        
+        if cat_obj:
+            # Match by slug, name OR id string
+            query["category"] = {
+                "$in": [
+                    cat_obj.get("slug"),
+                    cat_obj.get("name"),
+                    str(cat_obj["_id"]),
+                    category # original param as fallback
+                ]
+            }
+        else:
+            # Fallback to direct match if category not found in list (e.g. legacy)
+            query["category"] = {"$regex": f"^{re.escape(category)}$", "$options": "i"}
 
     if ids:
         try:

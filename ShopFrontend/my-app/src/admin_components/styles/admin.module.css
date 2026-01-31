@@ -1,9 +1,9 @@
 /* Global Admin Variables */
 :root {
   --admin-bg: #ffffff;
-  --sidebar-bg: #ffffff;
-  --sidebar-text: #0f1e3f;
-  --sidebar-active: #f1f5f9;
+  --sidebar-bg: #0f1e3f;
+  --sidebar-text: #e2e8f0;
+  --sidebar-active: #3b82f6;
   --header-bg: #ffffff;
   --text-primary: #111827;
   --text-secondary: #6b7280;
@@ -37,19 +37,19 @@ body {
   overflow-y: auto;
 }
 
-/* Sidebar */
 .sidebar {
   width: 260px;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  border-right: 1px solid var(--border-color);
 }
 
 .sidebar h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--sidebar-text);
+  color: #fff;
   margin-bottom: 2rem;
   text-align: center;
   letter-spacing: 0.5px;
@@ -67,14 +67,13 @@ body {
 }
 
 .sidebar a:hover {
-  background-color: #f8fafc;
-  color: var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
 .sidebar a.active {
   background-color: var(--sidebar-active);
-  color: var(--primary-color);
-  font-weight: 600;
+  color: #fff;
 }
 
 /* Topbar */
