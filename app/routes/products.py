@@ -31,7 +31,29 @@ def get_all_products():
     query = {}
 
     if category:
-        query["category"] = category
+        import re
+        # Find category by slug or name or ID
+        cat_obj = db.categories.find_one({
+            "$or": [
+                {"slug": category},
+                {"name": {"$regex": f"^{re.escape(category)}$", "$options": "i"}},
+                {"_id": ObjectId(category) if ObjectId.is_valid(category) else None}
+            ]
+        })
+        
+        if cat_obj:
+            # Match by slug, name OR id string
+            query["category"] = {
+                "$in": [
+                    cat_obj.get("slug"),
+                    cat_obj.get("name"),
+                    str(cat_obj["_id"]),
+                    category # original param as fallback
+                ]
+            }
+        else:
+            # Fallback to direct match if category not found in list (e.g. legacy)
+            query["category"] = {"$regex": f"^{re.escape(category)}$", "$options": "i"}
 
     if ids:
         try:
@@ -145,9 +167,8 @@ def create_product():
         
         # Details
         "description": data.get("description", ""),
-        "details_care": data.get("details_care", ""),
+        "fit_fabric": data.get("fit_fabric", ""),
         "returns_exchanges": data.get("returns_exchanges", ""),
-        "duties_taxes": data.get("duties_taxes", ""),
         "shipping": data.get("shipping", ""),
         "fabric": data.get("fabric", ""),
 
@@ -170,8 +191,7 @@ def update_product(id):
 
     for key in [
         "stock_id", "images", "title", "category", "price", "quantity", "colors", "sizes",
-        "description", "details_care", "returns_exchanges",
-        "duties_taxes", "shipping", "fabric"
+        "description", "fit_fabric", "returns_exchanges", "shipping", "fabric"
     ]:
         if key in data:
             update_data[key] = data[key]
