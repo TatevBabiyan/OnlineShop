@@ -10,9 +10,9 @@ function Footer() {
           <div className={styles.logo}>BASIQ</div>
           <p className={styles.tagline}>Elevating your everyday essentials.</p>
           <div className={styles.socials}>
-            <a href="#" className={styles.socialLink}>Instagram</a>
-            <a href="#" className={styles.socialLink}>Facebook</a>
-            <a href="#" className={styles.socialLink}>Pinterest</a>
+            <a href="/" className={styles.socialLink}>Instagram</a>
+            <a href="/" className={styles.socialLink}>Facebook</a>
+            <a href="/" className={styles.socialLink}>Pinterest</a>
           </div>
         </div>
 
@@ -28,10 +28,10 @@ function Footer() {
         {/* COL 3: Customer Care */}
         <div className={styles.col}>
           <h4>CUSTOMER CARE</h4>
-          <a href="#">Shipping & Returns</a>
-          <a href="#">Size Guide</a>
-          <a href="#">FAQ</a>
-          <a href="#">Contact Us</a>
+          <a href="/">Shipping & Returns</a>
+          <a href="/">Size Guide</a>
+          <a href="/">FAQ</a>
+          <a href="/">Contact Us</a>
         </div>
 
         {/* COL 4: Newsletter */}
@@ -49,8 +49,8 @@ function Footer() {
       <div className={styles.bottomBar}>
         <p>&copy; {new Date().getFullYear()} BASIQ. All rights reserved.</p>
         <div className={styles.legal}>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
+          <a href="/">Privacy Policy</a>
+          <a href="/">Terms of Service</a>
         </div>
       </div>
     </footer>

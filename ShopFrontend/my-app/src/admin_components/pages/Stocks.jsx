@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import styles from "../styles/admin.module.css";
 import config from "../../config";
@@ -17,11 +17,7 @@ export default function Stocks() {
 
   const API_URL = `${config.apiHost}/api/stocks/`;
 
-  useEffect(() => {
-    fetchStocks();
-  }, []);
-
-  const fetchStocks = async () => {
+  const fetchStocks = useCallback(async () => {
     setLoading(true);
     try {
       const res = await axios.get(API_URL);
@@ -31,7 +27,11 @@ export default function Stocks() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [API_URL]);
+
+  useEffect(() => {
+    fetchStocks();
+  }, [fetchStocks]);
 
   const filteredStocks = stocks.filter(s =>
     s.productName?.toLowerCase().includes(search.toLowerCase())

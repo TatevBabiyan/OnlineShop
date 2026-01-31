@@ -142,7 +142,7 @@ export default function Banners() {
                         </div>
                         <div className={styles.formGroup}>
                             <label>Main Background Image</label>
-                            {form.image && <img src={`${config.apiHost}${form.image}`} style={{ width: 100, display: 'block', marginBottom: 10 }} />}
+                            {form.image && <img src={`${config.apiHost}${form.image}`} alt="Main Preview" style={{ width: 100, display: 'block', marginBottom: 10 }} />}
                             <input type="file" onChange={handleImageUpload} />
                         </div>
 
@@ -186,7 +186,7 @@ export default function Banners() {
                                 </div>
                                 <div className={styles.formGroup}>
                                     <label>Image</label>
-                                    {form.images[i] && <img src={`${config.apiHost}${form.images[i]}`} style={{ width: 100, display: 'block', marginBottom: 10 }} />}
+                                    {form.images[i] && <img src={`${config.apiHost}${form.images[i]}`} alt={`Preview ${i + 1}`} style={{ width: 100, display: 'block', marginBottom: 10 }} />}
                                     <input type="file" onChange={(e) => handleImageUpload(e, i)} />
                                 </div>
                                 <div className={styles.formGroup}>

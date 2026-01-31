@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import styles from "../styles/admin.module.css";
 import config from "../../config";
@@ -36,11 +36,7 @@ export default function Products() {
   const API_STOCKS = `${config.apiHost}/api/stocks/`;
   const API_CATEGORIES = `${config.apiHost}/api/categories`;
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     setLoading(true);
     try {
       const [pRes, sRes, cRes] = await Promise.all([
@@ -56,7 +52,11 @@ export default function Products() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [API_PRODUCTS, API_STOCKS, API_CATEGORIES]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const openAddModal = () => {
     setStep(1);
