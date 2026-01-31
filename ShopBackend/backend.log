@@ -140,3 +140,17 @@
 127.0.0.1 - - [31/Jan/2026 21:10:44] "GET /api/products/?category=sale HTTP/1.1" 200 -
 127.0.0.1 - - [31/Jan/2026 21:10:46] "GET /api/products/?category=best-sellers HTTP/1.1" 200 -
 127.0.0.1 - - [31/Jan/2026 21:10:47] "GET /api/products/?category=bodysuits HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jan/2026 21:11:59] "GET /api/products/?category=tops-and-longsleeves HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jan/2026 21:11:59] "GET /api/products/?category=bodysuits HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jan/2026 21:11:59] "GET /api/products/?category=pants HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jan/2026 21:11:59] "GET /api/products/?category=suitsw HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jan/2026 21:11:59] "GET /api/products/?category=hoodies HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jan/2026 21:11:59] "GET /api/products/?category=sale HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jan/2026 21:11:59] "GET /api/products/?category=best-sellers HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jan/2026 21:12:15] "GET /api/products/?category=tops-and-longsleeves HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jan/2026 21:12:15] "GET /api/products/?category=bodysuits HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jan/2026 21:12:15] "GET /api/products/?category=pants HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jan/2026 21:12:15] "GET /api/products/?category=suitsw HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jan/2026 21:12:15] "GET /api/products/?category=hoodies HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jan/2026 21:12:15] "GET /api/products/?category=sale HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jan/2026 21:12:15] "GET /api/products/?category=best-sellers HTTP/1.1" 200 -
