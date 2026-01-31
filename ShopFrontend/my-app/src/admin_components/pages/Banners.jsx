@@ -5,8 +5,6 @@ import styles from "../styles/admin.module.css";
 
 export default function Banners() {
     const [banners, setBanners] = useState([]);
-    const [products, setProducts] = useState([]);
-    const [searchTerm, setSearchTerm] = useState("");
     const [editing, setEditing] = useState(null);
 
     const emptyForm = {
@@ -27,15 +25,10 @@ export default function Banners() {
 
     useEffect(() => {
         fetchBanners();
-        fetchProducts();
     }, []);
 
     const fetchBanners = () => {
         axios.get(`${config.apiHost}/api/banner/`).then(res => setBanners(res.data));
-    };
-
-    const fetchProducts = () => {
-        axios.get(`${config.apiHost}/api/products/`).then(res => setProducts(res.data));
     };
 
     const handleEdit = (b) => {
@@ -87,19 +80,6 @@ export default function Banners() {
             alert("Upload failed");
         }
     };
-
-    const toggleProductSelection = (id) => {
-        const current = form.linkedProducts || [];
-        if (current.includes(id)) {
-            setForm({ ...form, linkedProducts: current.filter(p => p !== id) });
-        } else {
-            setForm({ ...form, linkedProducts: [...current, id] });
-        }
-    };
-
-    const filteredProducts = products.filter(p =>
-        p.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
 
     return (
         <div className={styles.adminPage}>

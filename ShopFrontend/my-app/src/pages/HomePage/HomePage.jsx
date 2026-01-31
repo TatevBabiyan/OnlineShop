@@ -34,8 +34,8 @@ export default function HomePage() {
       <div style={{ textAlign: "center", padding: "40px 0" }}>
         <a href="/all" style={{
           textDecoration: "none",
-          color: "black",
-          borderBottom: "1px solid black",
+          color: "#27285C",
+          borderBottom: "1px solid #27285C",
           paddingBottom: "4px",
           fontFamily: "'Montserrat-Alt1', sans-serif",
           fontSize: "14px",
