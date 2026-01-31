@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import styles from "../styles/admin.module.css";
 import config from "../../config";
+import MediaRenderer from "../../components/MediaRenderer/MediaRenderer";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -184,7 +185,7 @@ export default function Products() {
         const res = await axios.post(`${config.apiHost}/api/upload/image`, fd);
         setFormData(prev => ({ ...prev, images: [...prev.images, res.data.url] }));
       } catch (err) {
-        alert("Error uploading image");
+        alert("Error uploading media");
       }
     }
   };
@@ -246,9 +247,9 @@ export default function Products() {
                 <tr key={p._id}>
                   <td>
                     {p.images && p.images[0] ? (
-                      <img src={`${config.apiHost}${p.images[0]}`} style={{ width: 40, height: 40, objectFit: 'cover', borderRadius: 4 }} alt="product" />
+                      <MediaRenderer src={p.images[0]} style={{ width: 40, height: 40, objectFit: 'cover', borderRadius: 4 }} alt="product" />
                     ) : (
-                      <span style={{ fontSize: '0.7rem', color: '#ccc' }}>No IMG</span>
+                      <span style={{ fontSize: '0.7rem', color: '#ccc' }}>No Media</span>
                     )}
                   </td>
                   <td style={{ fontWeight: 500 }}>{p.title}</td>
@@ -477,7 +478,7 @@ export default function Products() {
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 10 }}>
                         {formData.images.map((img, i) => (
                           <div key={i} style={{ position: 'relative', width: 80, height: 80 }}>
-                            <img src={`${config.apiHost}${img}`} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 4, border: '1px solid #ddd' }} alt="upload" />
+                            <MediaRenderer src={img} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 4, border: '1px solid #ddd' }} alt="upload" />
                             <button
                               type="button"
                               onClick={() => removeImage(i)}
@@ -500,7 +501,7 @@ export default function Products() {
                             cursor: 'pointer', borderRadius: 4, color: '#999', fontSize: 24
                           }}>
                             +
-                            <input type="file" multiple onChange={handleImageUpload} style={{ display: 'none' }} />
+                            <input type="file" multiple accept="image/*,video/*" onChange={handleImageUpload} style={{ display: 'none' }} />
                           </label>
                         )}
                       </div>

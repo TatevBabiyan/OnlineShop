@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import styles from "./ProductPage.module.css";
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import config from "../../config";
 import MediaRenderer from "../../components/MediaRenderer/MediaRenderer";
 import { CartContext } from "../../store/CartContext";
 

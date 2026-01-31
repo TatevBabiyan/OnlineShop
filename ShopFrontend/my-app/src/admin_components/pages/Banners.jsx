@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import config from "../../config";
+import MediaRenderer from "../../components/MediaRenderer/MediaRenderer";
 import styles from "../styles/admin.module.css";
 
 export default function Banners() {
@@ -37,9 +38,9 @@ export default function Banners() {
             ...emptyForm,
             ...b,
             images: b.images || ["", "", ""],
-            titles: b.titles || ["", "", ""],
-            buttonTexts: b.buttonTexts || ["", "", ""],
-            buttonLinks: b.buttonLinks || ["", "", ""]
+            titles: b.type === "category" && Array.isArray(b.title) ? b.title : b.titles || ["", "", ""],
+            buttonTexts: b.type === "category" && Array.isArray(b.buttonText) ? b.buttonText : b.buttonTexts || ["", "", ""],
+            buttonLinks: b.type === "category" && Array.isArray(b.buttonLink) ? b.buttonLink : b.buttonLinks || ["", "", ""]
         });
     };
 
@@ -133,10 +134,16 @@ export default function Banners() {
                                 }} />
                             </div>
                             <div className={styles.formGroup}>
-                                <label>Image</label>
-                                {/* eslint-disable-next-line jsx-a11y/alt-text */}
-                                {form.images[i] && <img src={`${config.apiHost}${form.images[i]}`} style={{ width: 100, display: 'block', marginBottom: 10 }} />}
-                                <input type="file" onChange={(e) => handleImageUpload(e, i)} />
+                                <label>Image / Video</label>
+                                {/* Media Preview */}
+                                {form.images[i] && (
+                                    <MediaRenderer
+                                        src={form.images[i]}
+                                        className={styles.mediaPreview}
+                                        style={{ width: 100, display: 'block', marginBottom: 10 }}
+                                    />
+                                )}
+                                <input type="file" accept="image/*,video/*" onChange={(e) => handleImageUpload(e, i)} />
                             </div>
                             <div className={styles.formGroup}>
                                 <label>Button Text</label>

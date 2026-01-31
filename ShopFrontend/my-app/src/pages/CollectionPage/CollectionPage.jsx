@@ -1,3 +1,8 @@
+import styles from "./CollectionPage.module.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import config from "../../config";
+import { useParams, useNavigate } from "react-router-dom";
 import MediaRenderer from "../../components/MediaRenderer/MediaRenderer";
 
 function CollectionPage() {

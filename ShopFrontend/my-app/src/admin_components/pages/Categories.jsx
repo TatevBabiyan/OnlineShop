@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import styles from "../styles/admin.module.css";
 import config from "../../config";
+import MediaRenderer from "../../components/MediaRenderer/MediaRenderer";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
@@ -112,9 +113,9 @@ export default function Categories() {
                 <tr key={cat._id}>
                   <td>
                     {cat.image ? (
-                      <img src={cat.image.startsWith("http") ? cat.image : `${config.apiHost}${cat.image}`} alt="cat" style={{ width: 40, height: 40, objectFit: 'cover' }} />
+                      <MediaRenderer src={cat.image} style={{ width: 40, height: 40, objectFit: 'cover' }} alt="cat" />
                     ) : (
-                      <span style={{ fontSize: 10, color: '#ccc' }}>No Image</span>
+                      <span style={{ fontSize: 10, color: '#ccc' }}>No Media</span>
                     )}
                   </td>
                   <td>{cat.name}</td>
@@ -163,8 +164,8 @@ export default function Categories() {
                 <label>Image</label>
                 {image && (
                   <div style={{ marginBottom: 10 }}>
-                    <img
-                      src={image.startsWith("http") ? image : `${config.apiHost}${image}`}
+                    <MediaRenderer
+                      src={image}
                       alt="preview"
                       style={{ height: 60, objectFit: 'cover' }}
                     />
@@ -172,6 +173,7 @@ export default function Categories() {
                 )}
                 <input
                   type="file"
+                  accept="image/*,video/*"
                   onChange={async (e) => {
                     const file = e.target.files[0];
                     if (!file) return;
@@ -183,7 +185,7 @@ export default function Categories() {
                       setImage(res.data.url);
                     } catch (err) {
                       console.error(err);
-                      alert("Error uploading image");
+                      alert("Error uploading media");
                     }
                   }}
                 />

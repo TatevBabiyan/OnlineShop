@@ -1,3 +1,8 @@
+import styles from "./AllProductsPage.module.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import config from "../../config";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import MediaRenderer from "../../components/MediaRenderer/MediaRenderer";
 
 function AllProductsPage() {

@@ -1,6 +1,6 @@
-import styles from "./CategoryBanners.module.css";
+import MediaRenderer from "../MediaRenderer/MediaRenderer";
 import { useNavigate } from "react-router-dom";
-import config from "../../config";
+import styles from "./CategoryBanners.module.css";
 
 function CategoryBanners({ banner }) {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ function CategoryBanners({ banner }) {
     <section className={styles.wrapper}>
       {banner.images.map((img, i) => (
         <div key={i} className={styles.item}>
-          <img src={`${config.apiHost}${img}`} alt="category-img" />
+          <MediaRenderer src={img} alt="category-media" />
           <div className={styles.overlay}>
             <h3>{banner.title[i]}</h3>
             <button onClick={() => navigate(banner.buttonLink[i])}>
